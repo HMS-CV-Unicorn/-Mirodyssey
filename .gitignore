@@ -4,8 +4,6 @@
 .rts2_cache_es/
 .rts2_cache_umd/
 
-# Python cache
-*.pyc
 
 myenv/
 
@@ -15,3 +13,4 @@ db_data/
 *.dump
 *.sql
 !sql/*/*.sql
+*.pyc
