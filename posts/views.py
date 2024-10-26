@@ -24,3 +24,9 @@ def post_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'posts/post_list.html', {'page_obj': page_obj})
+
+
+
+def timeline(request):
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, 'posts/timeline.html', {'posts': posts})
