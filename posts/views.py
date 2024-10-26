@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # API用ViewSet
 class PostViewSet(viewsets.ModelViewSet):
@@ -21,6 +22,7 @@ def post_list(request):
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)  # 投稿IDで特定の投稿を取得
     return render(request, 'posts/post_detail.html', {'post': post})
+
 
 def post_list(request):
     post_list = Post.objects.all()  # 全ての投稿を取得

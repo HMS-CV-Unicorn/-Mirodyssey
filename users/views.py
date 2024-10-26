@@ -6,7 +6,13 @@ from django.contrib.auth.models import User as auth_user
 from posts.models import Post
 from django.core.paginator import Paginator
 from django.http import Http404
+from django.urls import reverse
+from allauth.account.views import LoginView as AllauthLoginView
 
+class CustomLoginView(AllauthLoginView):
+    def get_success_url(self):
+        user = self.request.user
+        return reverse('user_profile', kwargs={'username': user.username})
 # API用ViewSet
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

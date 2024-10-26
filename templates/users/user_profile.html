@@ -27,6 +27,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'user_profile' user.username %}">プロフィール</a>
                     </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link btn btn-link" style="color: white;">ログアウト</button>
+                            </form>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

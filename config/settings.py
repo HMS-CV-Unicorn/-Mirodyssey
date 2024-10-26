@@ -150,4 +150,6 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels.layers.InMemoryChannelLayer',  # For local development without Redis
     },
-}
+}   
+
+#LOGIN_REDIRECT_URL = 'users'
