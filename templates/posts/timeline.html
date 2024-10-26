@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Timeline</h1>
+  {% for post in posts %}
+    <div>
+      <p>{{ post.user.username }}: {{ post.content }}</p>
+      <p>{{ post.created_at }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
