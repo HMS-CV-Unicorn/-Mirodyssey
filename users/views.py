@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from rest_framework import viewsets
 from .models import User
 from .serializers import UserSerializer
@@ -17,6 +17,7 @@ class CustomLoginView(AllauthLoginView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    
 
 def user_list(request):
     users = User.objects.all()  # 全てのユーザーを取得
